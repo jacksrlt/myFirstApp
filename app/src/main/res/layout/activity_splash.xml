@@ -8,6 +8,15 @@
     android:background="@drawable/gradient">
 
     <ImageView
+        android:id="@+id/nyskyline"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/nyskyline"
+        android:alpha="0.5"
+        android:scaleType="centerCrop"
+        />
+
+    <ImageView
         android:id="@+id/splashlog"
         android:layout_width="350dp"
         android:layout_height="350dp"

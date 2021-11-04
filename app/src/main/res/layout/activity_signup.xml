@@ -1,10 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient"
     tools:context=".Signup">
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/username"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:alpha="0.8"
+      android:layout_marginTop="88dp"
+      app:layout_constraintBottom_toTopOf="@id/password"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintEnd_toEndOf="@id/guideline3"
+      app:layout_constraintStart_toStartOf="@id/guideline2"
+      app:startIconDrawable="@drawable/ic_loginp">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alpha="0.5"
+        android:background="@color/white"
+        android:hint="username"
+        android:maxLines="1" />
+
+  </com.google.android.material.textfield.TextInputLayout>
+
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/password"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:alpha="0.8"
+      app:layout_constraintBottom_toTopOf="@id/passwordtrue"
+      app:layout_constraintEnd_toEndOf="@id/guideline3"
+      app:layout_constraintStart_toStartOf="@id/guideline2"
+      app:layout_constraintTop_toBottomOf="@id/username"
+      app:passwordToggleEnabled="true"
+      app:startIconDrawable="@drawable/ic_passlock">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alpha="0.5"
+        android:background="@color/white"
+        android:hint="password"
+        android:inputType="textPassword"
+        android:maxLines="1" />
+
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/passwordtrue"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:alpha="0.8"
+      app:layout_constraintBottom_toTopOf="@id/button"
+      app:layout_constraintEnd_toEndOf="@id/guideline3"
+      app:layout_constraintStart_toStartOf="@id/guideline2"
+      app:layout_constraintTop_toBottomOf="@id/password"
+      app:passwordToggleEnabled="true"
+      app:startIconDrawable="@drawable/ic_passlock">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alpha="0.5"
+        android:background="@color/white"
+        android:hint="confirm password"
+        android:inputType="textPassword"
+        android:maxLines="1" />
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <Button
+      android:id="@+id/button"
+      style="@style/mybutton"
+      android:layout_marginTop="8dp"
+      android:text="CREATE"
+      android:layout_marginBottom="8dp"
+      app:layout_constraintEnd_toStartOf="@id/guideline3"
+      app:layout_constraintStart_toStartOf="@id/guideline2"
+      app:layout_constraintTop_toBottomOf="@id/passwordtrue"
+      app:layout_constraintBottom_toTopOf="@id/button2"/>
+
+  <Button
+      android:id="@+id/button2"
+      style="@style/mybutton2"
+      android:layout_marginBottom="88dp"
+      android:text="BACK"
+      app:layout_constraintEnd_toStartOf="@id/guideline3"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="@id/guideline2"
+      app:layout_constraintTop_toBottomOf="@id/button" />
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guideline2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_constraintGuide_percent="0.10" />
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guideline3"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_constraintGuide_percent="0.90" />
+</androidx.constraintlayout.widget.ConstraintLayout>
