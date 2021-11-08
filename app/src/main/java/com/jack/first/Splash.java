@@ -11,6 +11,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+/*
+* @author miguel
+* te he cambiado to la animacion
+*
+* */
+
 public class Splash extends AppCompatActivity {
 
     @Override
