@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_palog_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.First" >
+        android:theme="@style/Theme.First">
         <activity
             android:name=".Splash"
             android:exported="true"
@@ -24,15 +24,14 @@
         <activity
             android:name=".Signup"
             android:exported="true"
-            android:parentActivityName=".LoginActivity"/>
+            android:parentActivityName=".LoginActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
         <activity
             android:name=".LoginActivity"
             android:exported="true"
-            android:theme="@style/NoActionTheme" >
-        </activity>
+            android:theme="@style/NoActionTheme"></activity>
     </application>
 
 </manifest>
