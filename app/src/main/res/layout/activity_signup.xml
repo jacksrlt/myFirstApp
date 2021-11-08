@@ -7,6 +7,14 @@
     android:background="@drawable/gradient"
     tools:context=".Signup">
 
+  <ImageView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:src="@drawable/hipman"
+      android:alpha="0.5"
+      android:scaleType="fitStart"
+      />
+
   <com.google.android.material.textfield.TextInputLayout
       android:id="@+id/username"
       android:layout_width="0dp"

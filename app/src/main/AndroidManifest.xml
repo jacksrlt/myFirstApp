@@ -24,7 +24,6 @@
         <activity
             android:name=".Signup"
             android:exported="true"
-            android:theme="@style/NoActionTheme"
             android:parentActivityName=".LoginActivity"/>
         <activity
             android:name=".MainActivity"

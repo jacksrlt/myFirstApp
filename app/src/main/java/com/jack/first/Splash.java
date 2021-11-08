@@ -26,7 +26,9 @@ public class Splash extends AppCompatActivity {
         ImageView palogsplash = (ImageView) findViewById(R.id.splashlog);
         Animation myanim2 = AnimationUtils.loadAnimation(this, R.anim.fadein);
         palogsplash.startAnimation(myanim2);
+
     }
+
 
     private void openApp (boolean locationPermission) {
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
