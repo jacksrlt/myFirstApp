@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.First">
         <activity
+            android:name=".ForgotPassword"
+            android:exported="false" />
+        <activity
             android:name=".Splash"
             android:exported="true"
             android:theme="@style/NoActionTheme">
@@ -31,7 +34,7 @@
         <activity
             android:name=".LoginActivity"
             android:exported="true"
-            android:theme="@style/NoActionTheme"></activity>
+            android:theme="@style/NoActionTheme" />
     </application>
 
 </manifest>

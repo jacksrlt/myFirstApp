@@ -42,6 +42,7 @@ public class Splash extends AppCompatActivity {
             public void run() {
                 Intent intent = new Intent (Splash.this, LoginActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         }, 3500);
     }
@@ -51,5 +52,6 @@ public class Splash extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
+
     }
 }
