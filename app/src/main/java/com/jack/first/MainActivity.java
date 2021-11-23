@@ -1,5 +1,7 @@
 package com.jack.first;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -7,13 +9,17 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class MainActivity extends AppCompatActivity {
 
     private SwipeRefreshLayout swipeLayout;
     private WebView miVisorWeb;
+    //private String webUrl = miVisorWeb.getUrl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +38,39 @@ public class MainActivity extends AppCompatActivity {
         miVisorWeb.setWebViewClient(new WebViewClient());
     }
 
+    public void showAlertDialogButtonClicked(MainActivity view) {
+        // setup the alert builder
+        MaterialAlertDialogBuilder builder = new
+                MaterialAlertDialogBuilder(MainActivity.this);
+        builder.setTitle("Hey!");
+        builder.setMessage("Are you sure you want to leave?");
+        builder.setIcon(R.drawable.ic_baseline_emoji_people_24);
+
+        // add the buttons
+        builder.setPositiveButton("Yes", new
+                DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do something like...
+                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                    }
+                });
+        builder.setNegativeButton("No", new
+                DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do something like...
+                        dialog.dismiss();
+                    }
+                });
+        // create and show the alert dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
     protected SwipeRefreshLayout.OnRefreshListener
         mOnRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
         @Override
@@ -41,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
             miVisorWeb.loadUrl("https://en.wikipedia.org/wiki/Special:Random");
             swipeLayout.setRefreshing(false);
         }
+
     };
 
 //    @Override
@@ -98,7 +138,17 @@ public class MainActivity extends AppCompatActivity {
             toast.show();
             return true;
         }
+
         if (id == R.id.item2) {
+            return true;
+        }
+
+        if (id == R.id.item3) {
+            return true;
+        }
+
+        if (id == R.id.item4) {
+            showAlertDialogButtonClicked(MainActivity.this);
             return true;
         }
         return super.onOptionsItemSelected(item);

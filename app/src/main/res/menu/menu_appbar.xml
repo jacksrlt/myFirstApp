@@ -17,11 +17,11 @@
     <item
         android:id="@+id/item3"
         android:title="About us"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/item4"
         android:title="Signout"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
 
 </menu>
