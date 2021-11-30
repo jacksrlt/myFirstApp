@@ -3,8 +3,8 @@ First Android Studio app for User Interface Design class.
 
 # Screenshots
 
-![Splash screenshot](/img/splash.png)
-![Login screenshot](/img/login.png)
-![Signup screenshot](/img/signup.png)
-![Main screenshot](/img/main.png)
-![Refresh screenshot](/img/refresh.png)
+<img src="./img/splash.png" width="200"></img>
+<img src="./img/login.png" width="200"></img>
+<img src="./img/signup.png" width="200"></img>
+<img src="./img/main.png" width="200"></img>
+<img src="./img/refresh.png" width="200"></img>
