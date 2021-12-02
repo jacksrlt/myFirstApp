@@ -4,14 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Bookmarked"
-    android:background="@drawable/gradient">
+    tools:context=".Bookmarked">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvBookmarked"
+        android:layout_margin="24dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp" />
+        tools:layout_editor_absoluteY="1dp"
+        android:scrollbars="vertical"
+        android:scrollbarStyle="insideOverlay"
+        android:paddingRight="8dp"
+        android:background="@drawable/button2border"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
