@@ -19,39 +19,46 @@ public class MainActivity extends AppCompatActivity {
 
     private SwipeRefreshLayout swipeLayout;
     private WebView miVisorWeb;
-    //private String webUrl = miVisorWeb.getUrl();
+
+    //Links and variables for WebView
+    String link = "https://en.wikipedia.org/wiki/Special:Random";
+    String link2;
+    String oldlang;
+    String newlang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //WebView mycontext = (WebView) findViewById(R.id.vistaweb);
-        //registerForContextMenu(mycontext);
-
+        //Swipe
         swipeLayout = (SwipeRefreshLayout) findViewById(R.id.myswipe);
         swipeLayout.setOnRefreshListener(mOnRefreshListener);
 
+        //WebView
         miVisorWeb = (WebView) findViewById(R.id.vistaweb);
         miVisorWeb.getSettings().setBuiltInZoomControls(false);
-        miVisorWeb.loadUrl("https://en.wikipedia.org/wiki/Special:Random");
+        miVisorWeb.loadUrl(link);
         miVisorWeb.setWebViewClient(new WebViewClient());
     }
 
+    //Alert dialogs
+
+    //Signout alert dialog
     public void showAlertDialogButtonClicked(MainActivity view) {
-        // setup the alert builder
-        MaterialAlertDialogBuilder builder = new
-                MaterialAlertDialogBuilder(MainActivity.this);
+
+        //Setup for signout alert dialog
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
         builder.setTitle("Hey!");
         builder.setMessage("Are you sure you want to leave?");
         builder.setIcon(R.drawable.ic_baseline_emoji_people_24);
 
-        // add the buttons
+        //Buttons for signout alert dialog
         builder.setPositiveButton("Yes", new
                 DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // do something like...
+                        //Function sends user to Login activity
                         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -62,91 +69,103 @@ public class MainActivity extends AppCompatActivity {
                 DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // do something like...
+                        //Closes alert dialog
                         dialog.dismiss();
                     }
                 });
-        // create and show the alert dialog
+        //Create and show the signout alert dialog
         AlertDialog dialog = builder.create();
         dialog.show();
     }
 
+    //Language alert dialog
+    public void showAlertDialogButtonClicked2(MainActivity view) {
+        //Language alert dialog setup
+        MaterialAlertDialogBuilder builder2 = new MaterialAlertDialogBuilder(MainActivity.this);
+        builder2.setTitle("Pick a language");
+        builder2.setMessage("Keep in mind the article might not be available in the selected language");
+        builder2.setIcon(R.drawable.ic_baseline_language_24);
+
+        //Buttons for language alert dialog
+        builder2.setPositiveButton("Spanish", new
+                DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //Function sets Wikipedias article URL to spanish and loads new URL
+                        oldlang = "en";
+                        newlang = "es";
+                        link2 = miVisorWeb.getUrl();
+                        link2 = link2.replaceFirst(oldlang, newlang);
+                        link = link.replaceFirst(oldlang, newlang);
+                        miVisorWeb.loadUrl(link2);
+                    }
+                });
+        builder2.setNeutralButton("English", new
+                DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //Function sets Wikipedia's article URL to english and loads new URL
+                        oldlang = "es";
+                        newlang = "en";
+                        link2 = miVisorWeb.getUrl();
+                        link2 = link2.replaceFirst(oldlang, newlang);
+                        link = link.replaceFirst(oldlang, newlang);
+                        miVisorWeb.loadUrl(link2);
+                    }
+                });
+        //Create and show language alert dialog
+        AlertDialog dialog2 = builder2.create();
+        dialog2.show();
+    }
+
+    //Swiperefresh loads the random Wikipedia website again to show a different article
     protected SwipeRefreshLayout.OnRefreshListener
         mOnRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
         @Override
         public void onRefresh() {
             Toast toast0 = Toast.makeText(MainActivity.this, "Get wiser! :-)", Toast.LENGTH_LONG);
             toast0.show();
-            miVisorWeb.loadUrl("https://en.wikipedia.org/wiki/Special:Random");
+            miVisorWeb.loadUrl(link);
             swipeLayout.setRefreshing(false);
         }
 
     };
 
-//    @Override
-//    public void onCreateContextMenu(ContextMenu menu, View v,
-//                                    ContextMenu.ContextMenuInfo menuInfo) {
-//        getMenuInflater().inflate(R.menu.menu_context, menu);
-//    }
-
-//    @Override
-//    public boolean onContextItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.item1:
-//    //            Toast toast = Toast.makeText(this,"Item copied",
-//    //                    Toast.LENGTH_LONG );
-//    //            toast.show();
-//
-//                final ConstraintLayout mLayout = findViewById(R.id.myMainConstraint);
-//
-//                Snackbar snackbar = Snackbar
-//                        .make(mLayout, "Item copied to clipboard", Snackbar.LENGTH_LONG)
-//                        .setAction("UNDO", new View.OnClickListener() {
-//                            @Override
-//                            public void onClick(View view) {
-//                                Snackbar snackbar1 = Snackbar.make(mLayout, "Action restored", Snackbar.LENGTH_SHORT);
-//                                snackbar1.show();
-//                            }
-//                        });
-//
-//                snackbar.show();
-//                return true;
-//
-//            case R.id.item2:
-//                Toast toast2 = Toast.makeText(this,"Item downloaded",
-//                        Toast.LENGTH_LONG );
-//                toast2.show();
-//                return true;
-//                default:
-//                return super.onContextItemSelected(item);
-//       }
-//    }
-
+    //Menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_appbar, menu);
         return true;
     }
 
+    //Selected menu items
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
 
+        //Saves WebView URL to Bookmarked Array
         if (id == R.id.item1) {
-            Toast toast = Toast.makeText(this,"Copied!",Toast.LENGTH_LONG );
+            Toast toast = Toast.makeText(this,"Saved to bookmark!",Toast.LENGTH_LONG );
+            Bookmarked.bookmarks.add(miVisorWeb.getUrl());
             toast.show();
             return true;
         }
 
+        //Shows Language alert dialog
         if (id == R.id.item2) {
+            showAlertDialogButtonClicked2(MainActivity.this);
             return true;
         }
 
+        //Sends user to Bookmarks activity
         if (id == R.id.item3) {
+            Intent intent = new Intent(MainActivity.this, Bookmarked.class);
+            startActivity(intent);
             return true;
         }
 
+        //Shows Signout alert dialog
         if (id == R.id.item4) {
             showAlertDialogButtonClicked(MainActivity.this);
             return true;

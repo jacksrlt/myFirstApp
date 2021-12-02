@@ -103,14 +103,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="I forgot my password"
-        android:textSize="16dp"
         android:alpha="0.8"
+        android:onClick="onClick2"
+        android:text="I forgot my password"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/button2"
-        app:layout_constraintStart_toStartOf="@id/guideline2"
+        android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="@id/guideline3"
-        />
+        app:layout_constraintStart_toStartOf="@id/guideline2"
+        app:layout_constraintTop_toBottomOf="@id/button2" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
