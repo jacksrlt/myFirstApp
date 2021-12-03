@@ -16,7 +16,7 @@ Splash has two animations, one on each image, when they finish they lead to the 
 &nbsp;
 <img src="img\Splash.gif"> </img>
 ## Login
-Login has two TextViews for the username and password (with a toggle/visible button), two buttons that lead to Main(SIGNIN), Signup and a TextView that leads to Forgot("I forgot my password").
+Login has two TextViews for the username and password (with a toggle/visible button), two buttons that lead to Main(SIGN IN), Signup and a TextView that leads to Forgot("I forgot my password").
 
 &nbsp;
 <img src="img\Login.jpg"> </img>
@@ -34,6 +34,8 @@ Forgot has a TextView and a button, just as the Signup activity, when the button
 
 &nbsp;
 <img src="img\Main.gif"> </img>
+
+&nbsp;
 The Main activity layout consists of:
 - WebView
 - Appbar menu 
