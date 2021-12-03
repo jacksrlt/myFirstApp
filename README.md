@@ -14,26 +14,26 @@ paL has 6 activities:
 Splash has two animations, one on each image, when they finish they lead to the Login activity. The images are loaded with Glide.
 
 &nbsp;
-<img src="img\Splash.gif"> </img>
+<img src="img\Splash.gif" width="200"> </img>
 ## Login
 Login has two TextViews for the username and password (with a toggle/visible button), two buttons that lead to Main(SIGN IN), Signup and a TextView that leads to Forgot("I forgot my password").
 
 &nbsp;
-<img src="img\Login.jpg"> </img>
+<img src="img\Login.jpg" width="200"> </img>
 ## Signup
 Signup has some TextViews and a button that, when clicked on, sends you to Login activity and shows a Toast message.
 
 &nbsp;
-<img src="img\Signup.gif"> </img>
+<img src="img\Signup.gif" width="200"> </img>
 ## Forgot
 Forgot has a TextView and a button, just as the Signup activity, when the button is clicked on, it sends you to Login activity and shows a Toast message.
 
 &nbsp;
-<img src="img\Forgot.gif"> </img>
+<img src="img\Forgot.gif" width="200"> </img>
 ## Main
 
 &nbsp;
-<img src="img\Main.gif"> </img>
+<img src="img\Main.gif" width="200"> </img>
 
 &nbsp;
 The Main activity layout consists of:
@@ -46,17 +46,17 @@ The WebView loads a random Wikipedia article using a link (https://en.wikipedia.
 When swipped down, it loads the URL to deliver a new random article
 
 &nbsp;
-<img src="img\Swipe.gif"> </img>
+<img src="img\Swipe.gif" width="200"> </img>
 ### Appbar Menu
 It has four items:
 - Language: When clicked on, it shows you an Alert Dialog that lets you pick between english and spanish. It changes the language bit on the Wikipedia link from 'en' to 'es' or the other way around.
 
 &nbsp;
-<img src="img\Lang.gif"> </img>
+<img src="img\Lang.gif" width="200"> </img>
 - Signout: Shows an Alert Dialog that lets you choose if you want to stay in the app or signout. If 'YES' is clicked, it loads the Main activity.
 
 &nbsp;
-<img src="img\Signout.gif"> </img>
+<img src="img\Signout.gif" width="200"> </img>
 - Bookmark: Copies current WebView's URL to ArrayList you can consult clicking on the `Bookmarks` item. Shows a Toast message.
 - Bookmarks: Leds you to `Bookmarked activity`.
 <!--Bookmark-->
@@ -64,7 +64,7 @@ It has four items:
 This activity layout consists of a RecyclerView that shows the ArrayList where the WebView's URL are being saved on the previous activity, like a library.
 
 &nbsp;
-<img src="img\Bookmarked.gif"> </img>
+<img src="img\Bookmarked.gif" width="200"> </img>
 # Other characteristics
 - There are restrictions preventing the user to go back to the Splash activity from the Login activity using the back button, aswell as going back to the Login activity from the Main activity.
 - All activities have layouts designed both for portrait and landscape mode.
